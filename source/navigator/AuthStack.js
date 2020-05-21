@@ -5,41 +5,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 // Styles 
 import styled from 'styled-components';
+import { Login } from '../components/Loging';
+import { Register } from '../components/Register';
 
 const Stack = createStackNavigator();
-
-
-// Component
-const Loging = ({ navigation }) =>{
-    // const { user, login } = useContext(AuthContext);
-
-    return(
-    <Container> 
-        <Text> Log in </Text> 
-        <Button title="Go to Register" 
-            onPress={()=>  navigation.navigate('Register') } 
-        />
-
-        <Button
-            onPress={ () => console.log('log in') } 
-            title={"Log in "}
-        />
-    </Container>
-    )
-}
-    
-
-const Register = ({ navigation, route }) => 
-    <Container> 
-        <Text> Registration  </Text> 
-        <Text> route name : {route.name} </Text> 
-        
-        <Button title="Go to Loging" 
-            onPress={ ()=>  navigation.navigate('Loging') } 
-        />
-    </Container>
-
-
 
 function AuthStack() {
     const [loading, setLoading] = useState(false);
@@ -48,10 +17,12 @@ function AuthStack() {
         return <Container><ActivityIndicator size="large"/></Container>
     }
     return (
-        <Stack.Navigator initialRouteName='Loging' screenOptions={{ header: ()=> null }}>
-                <Stack.Screen name="Loging" component={Loging} />
-                <Stack.Screen name="Register" component={Register} />
-        </Stack.Navigator>
+        <NavigationContainer>
+            <Stack.Navigator initialRouteName='Login' screenOptions={{ header: ()=> null }}>
+                    <Stack.Screen name="Login" component={Login} />
+                    <Stack.Screen name="Register" component={Register} />
+            </Stack.Navigator>
+        </NavigationContainer>
     );
   }
 

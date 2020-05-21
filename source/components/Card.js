@@ -7,7 +7,7 @@ const Card = (props) => {
 return (
         <Container> 
             <Cover>
-                <Image source={ props.backgroundUrl } />
+                <Image source={props.backgroundUrl } />
                 <Title>{props.title}</Title>
             </Cover>
 

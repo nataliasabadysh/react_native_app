@@ -10,7 +10,7 @@ import Profile from '../screens/Profile';
 
 import SectionsScreen from '../screens/SectionsScreen';
 import CoursesScreen from '../screens/CoursesScreen';
-
+import AuthStack from './AuthStack';
 
 // nav
 const HomeStack = createStackNavigator();
@@ -34,7 +34,7 @@ const ProjectStackScreen = () =>
         <ProjectStack.Screen name="Profile" component={Profile} />
     </ProjectStack.Navigator>
 
-export default function TabNavigation() {
+const TabNavigation = () => {
   return (
     <NavigationContainer>
         <Tab.Navigator  tabBarOptions={{ activeTintColor: 'tomato', inactiveTintColor: 'gray' }}>
@@ -65,3 +65,17 @@ export default function TabNavigation() {
   );
 }
 
+
+const RouterApp = () => {
+    const user = false;
+    return (
+        <>
+        { user ?
+            <TabNavigation />
+            : 
+            <AuthStack/>
+        }
+        </>
+    )
+}
+export default RouterApp;
