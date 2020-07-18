@@ -67,7 +67,7 @@ const TabNavigation = () => {
 
 
 const RouterApp = () => {
-    const user = false;
+    const user = true;
     return (
         <>
         { user ?
